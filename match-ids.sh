@@ -1,5 +1,6 @@
 #!/bin/sh
 echo "PCI Matches:"
-for i in $(lspci -n | sed -E 's/.* (....:....) .*/\1/')
-	do grep -i ${i} pci.map
+for i in $(lspci -n | sed -E 's/.* ([0-9a-fA-F]{4}:[0-9a-fA-F]{4}) .*/\1/')
+do
+	grep -i ${i} pci.map
 done
